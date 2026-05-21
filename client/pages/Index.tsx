@@ -41,20 +41,23 @@ export default function Index() {
         id="home"
         className="w-screen h-screen mt-16 relative overflow-hidden bg-gradient-to-b from-amber-50 to-white"
       >
-        <div className="absolute inset-0">
+        <div className="hidden md:block absolute inset-0">
           <img
             src="https://cdn.builder.io/api/v1/image/assets%2F137966a6da914b47a16bcd89b41ca84c%2F4c8630d55e5d47bf85ed8187c98e20a6?format=webp&width=1200&height=1600"
             alt="Lakhotia Industrial Complex — Ranihati–Amta Road, Howrah"
-           className="w-full h-full object-cover md:object-cover object-right"
+           className="w-full h-full object-cover object-[85%_center] md:object-cover md:object-center"
           />
+          
           {/* Overlay */}
           <div
             className="absolute inset-0 bg-gradient-to-r from-amber-50/95 from-0% via-amber-50/75 via-40% to-amber-50/15 to-100%"
             style={{ paddingLeft: 0, paddingRight: 0 }}
           ></div>
+        
         </div>
 
         {/* Content */}
+        
         <div className="relative h-full flex items-center pl-8 sm:pl-16 md:pl-20 max-w-2xl">
           <div>
             {/* Badge */}
@@ -77,6 +80,11 @@ export default function Index() {
             >
               Dawn of a new Industrial Era.
             </span>
+              <img
+  src="https://cdn.builder.io/api/v1/image/assets%2F137966a6da914b47a16bcd89b41ca84c%2F4c8630d55e5d47bf85ed8187c98e20a6?format=webp&width=1200&height=1600"
+  alt="Lakhotia Industrial Complex"
+  className="block md:hidden w-[160%] max-w-none h-auto object-cover mt-6 -ml-[210px]"
+/>
 
             {/* Description */}
             <p className="text-sm sm:text-base text-slate-700 max-w-md leading-relaxed mb-6">
@@ -87,17 +95,20 @@ export default function Index() {
             </p>
 
             {/* Tags */}
-            <div className="flex flex-wrap gap-2 mb-8">
-              <span className="text-xs font-semibold px-3 py-1.5 border border-slate-900/20 text-slate-700 bg-white/60">
-                SME Manufacturing
+            <div className="flex flex-wrap justify-start md:justify-start gap-1 md:gap-2 mb-8 pl-1 md:pl-0">
+              <span className="text-[9px] md:text-xs font-medium md:font-semibold px-3 md:px-3 py-1 border border-slate-900/20 text-slate-700 bg-white/60 whitespace-nowrap">
+                <>
+  <span className="md:hidden">SME Manufacturing</span>
+  <span className="hidden md:inline">SME Manufacturing</span>
+</>
               </span>
-              <span className="text-xs font-semibold px-3 py-1.5 border border-slate-900/20 text-slate-700 bg-white/60">
+              <span className="text-[9px] md:text-xs font-medium md:font-semibold px-3 md:px-3 py-1 border border-slate-900/20 text-slate-700 bg-white/60 whitespace-nowrap">
                 Warehousing
               </span>
-              <span className="text-xs font-semibold px-3 py-1.5 border border-slate-900/20 text-slate-700 bg-white/60">
+              <span className="text-[9px] md:text-xs font-medium md:font-semibold px-3 md:px-3 py-1 border border-slate-900/20 text-slate-700 bg-white/60 whitespace-nowrap">
                 Logistics
               </span>
-              <span className="text-xs font-semibold px-3 py-1.5 border border-slate-900/20 text-slate-700 bg-white/60">
+              <span className="text-[9px] md:text-xs font-medium md:font-semibold px-3 md:px-3 py-1 border border-slate-900/20 text-slate-700 bg-white/60 whitespace-nowrap">
                 Freehold
               </span>
             </div>
@@ -125,7 +136,7 @@ export default function Index() {
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-slate-700/60">
           <span className="text-xs uppercase tracking-widest font-semibold"></span>
-          <div className="w-0.5 h-10 bg-orange-500 animate-pulse"></div>
+          
         </div>
       </section>
 
@@ -369,14 +380,14 @@ export default function Index() {
           </div>
 
           {/* CTA */}
-          <div className="bg-gradient-to-r from-orange-500 to-orange-600 p-8 flex items-center justify-between">
+          <div className="bg-gradient-to-r from-orange-500 to-orange-600 p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <h3 className="font-serif text-2xl font-bold text-white max-w-md">
               Not sure which plot size is right for your business?{" "}
               <em className="italic">Let's figure it out together.</em>
             </h3>
             <button
               onClick={() => scrollToSection("#contact")}
-              className="px-6 h-12 bg-white text-orange-600 font-bold text-sm uppercase tracking-wide rounded hover:bg-amber-50 transition-colors cursor-pointer"
+              className="min-w-[140px] px-4 py-2 bg-white text-orange-600 font-bold text-xs text-center rounded hover:bg-amber-50 transition-colors cursor-pointer mx-auto md:mx-0"
             >
               Get Free Consultation
             </button>

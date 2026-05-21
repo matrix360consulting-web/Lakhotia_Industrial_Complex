@@ -103,7 +103,7 @@ export function Navigation() {
           className="md:hidden flex items-center justify-center w-12 h-16 text-white/75 hover:text-white transition-colors ml-auto cursor-pointer"
           type="button"
         >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} className="text-black" />}
         </button>
       </nav>
 

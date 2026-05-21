@@ -10,7 +10,7 @@ export default function Gallery() {
       <Navigation />
 
       <section className="pt-32 pb-24">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 relative">
           <span className="text-xs font-bold uppercase tracking-widest text-orange-600">
             Site Gallery
           </span>
@@ -26,6 +26,7 @@ export default function Gallery() {
           <p className="text-base leading-relaxed text-slate-700 max-w-2xl mb-12">
             Explore the latest updates and visual insights into our ongoing development work.
           </p>
+  
 
           {/* Gallery Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
