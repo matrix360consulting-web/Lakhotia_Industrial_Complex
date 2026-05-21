@@ -45,7 +45,7 @@ export default function Index() {
           <img
             src="https://cdn.builder.io/api/v1/image/assets%2F137966a6da914b47a16bcd89b41ca84c%2F4c8630d55e5d47bf85ed8187c98e20a6?format=webp&width=1200&height=1600"
             alt="Lakhotia Industrial Complex — Ranihati–Amta Road, Howrah"
-            className="w-full h-full object-cover"
+           className="w-full h-full object-cover md:object-cover object-right"
           />
           {/* Overlay */}
           <div
@@ -201,7 +201,7 @@ export default function Index() {
                 creating real opportunities for businesses that are ready to
                 move.
               </p>
-              <p className="text-sm leading-relaxed text-slate-600">
+              <p className="text-base leading-relaxed text-slate-700">
                 The state is attracting fresh investment across sectors — from
                 FMCG and packaging to engineering, pharma, and logistics. Supply
                 chains are shifting eastward. Infrastructure is expanding. For
@@ -212,7 +212,7 @@ export default function Index() {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-0.5 bg-slate-900/10 p-0.5 mt-12">
                 <div className="bg-white p-6">
-                  <div className="font-serif text-3xl font-bold text-orange-500">
+                  <div className="font-serif text-2xl md:text-3xl font-bold text-orange-500">
                     41.8M
                   </div>
                   <div className="text-xs text-slate-600 mt-1">
@@ -221,7 +221,7 @@ export default function Index() {
                 </div>
                 <div className="bg-white p-6">
                   <div className="font-serif text-3xl font-bold text-orange-500">
-                    ~8 km
+                    <span className="whitespace-nowrap text-[25px] md:text-3xl">~8 km</span>
                   </div>
                   <div className="text-xs text-slate-600 mt-1">
                     From NH-6, primary freight corridor
