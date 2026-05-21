@@ -184,7 +184,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="font-semibold text-slate-900 text-sm">
-                          +91 6293 696009
+                          +91 6293 696009, +91 6293 696008
                         </p>
                         <p className="text-xs text-slate-600">Call or WhatsApp</p>
                       </div>

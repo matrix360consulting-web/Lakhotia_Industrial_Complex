@@ -846,7 +846,7 @@ export default function Index() {
             {/* Brand */}
            <div>
   <img
-    src="/logo.png"
+    src="/whitelogo.png"
     alt="Lakhotia Group"
     className="h-20 w-auto mb-4"
   />
@@ -893,7 +893,7 @@ export default function Index() {
                 Contact
               </h5>
               <ul className="space-y-3 text-xs text-white/40">
-                <li>+91 6293 696009</li>
+                <li>+91 6293 696009, +91 6293 696008</li>
                 <li>
                   <a href="#" className="hover:text-white transition-colors">
                     info@lakhotiaindustrialcomplex.com
