@@ -15,7 +15,7 @@ export default function Contact() {
     <div className="bg-amber-50 min-h-screen">
       <Navigation />
 
-      <section className="pt-32 pb-24">
+      <section id="contact" className="pt-32 pb-24">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12">
           <span className="text-xs font-bold uppercase tracking-widest text-orange-600">
             Contact & Enquiry
