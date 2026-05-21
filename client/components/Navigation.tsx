@@ -132,13 +132,7 @@ export function Navigation() {
             >
               Site Gallery
             </Link>
-            <Link
-              to="/knowledge"
-              className="px-6 py-4 text-xs font-bold uppercase tracking-wide text-white/65 border-b border-white/10 hover:text-white hover:bg-orange-500/10 transition-colors cursor-pointer"
-              onClick={handleMenuClose}
-            >
-              Knowledge Centre
-            </Link>
+            
             <Link
               to="/contact"
               className="px-6 py-4 text-xs font-bold uppercase tracking-wide text-white/65 border-b border-white/10 hover:text-white hover:bg-orange-500/10 transition-colors cursor-pointer"
