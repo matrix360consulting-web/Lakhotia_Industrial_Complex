@@ -824,11 +824,8 @@ export default function Index() {
                 </h3>
                 <p className="text-sm text-white/80 mb-6">{item.desc}</p>
                 <a
-                  href={
-                    idx === 0
-                     ? "#contact"
-: "#contact"
-                  }
+                 href="/contact"
+                  
                   className="mt-auto w-full px-6 h-12 bg-white text-orange-600 font-bold text-sm uppercase tracking-wide rounded hover:bg-amber-50 transition-colors cursor-pointer flex items-center justify-center"
                 >
                   {idx === 0 ? "Start Here" : "Schedule a Visit"}
