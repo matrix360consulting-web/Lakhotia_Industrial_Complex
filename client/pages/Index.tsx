@@ -826,8 +826,8 @@ export default function Index() {
                 <a
                   href={
                     idx === 0
-                      ? "/contact"
-                      : "/contact"
+                     ? "#contact"
+: "#contact"
                   }
                   className="mt-auto w-full px-6 h-12 bg-white text-orange-600 font-bold text-sm uppercase tracking-wide rounded hover:bg-amber-50 transition-colors cursor-pointer flex items-center justify-center"
                 >
