@@ -535,7 +535,7 @@ export default function Index() {
                   "Campus-style development",
                   "Multi-unit complex",
                   "Large-scale manufacturing",
-                  "Long-term growth"
+                  "Long-term growth",
                 ],
                 featured: false,
               },
@@ -614,10 +614,18 @@ export default function Index() {
               </h2>
               <div className="h-1 w-9 bg-orange-500 mb-6"></div>
               <p className="text-base leading-relaxed text-slate-700 mb-6">
-                Lakhotia Industrial Complex is part of the 40 year old Lakhotia Group. The dream started taking shape in 2022 with the key objective of building an organised, infrastructure-led industrial complex in the Howrah belt. Not fragmented land plots, but a complete ecosystem where SME manufacturers and warehouse operators can grow.
+                Lakhotia Industrial Complex is part of the 40 year old Lakhotia
+                Group. The dream started taking shape in 2022 with the key
+                objective of building an organised, infrastructure-led
+                industrial complex in the Howrah belt. Not fragmented land
+                plots, but a complete ecosystem where SME manufacturers and
+                warehouse operators can grow.
               </p>
               <p className="text-base leading-relaxed text-slate-700 mb-6">
-               Our approach is simple: Plan properly. Build in phases. Be honest about what is ready and what is coming. And support every buyer—not just until they sign the agreement, but until their factory or warehouse is running.
+                Our approach is simple: Plan properly. Build in phases. Be
+                honest about what is ready and what is coming. And support every
+                buyer—not just until they sign the agreement, but until their
+                factory or warehouse is running.
               </p>
               <p className="text-sm text-slate-600">
                 Lakhotia Industrial Complex is a registered company in Howrah,
@@ -741,10 +749,10 @@ export default function Index() {
             <div>
               <div className="bg-white aspect-square rounded-sm flex items-center justify-center mb-4 border border-slate-200 overflow-hidden">
                 <img
-  src={ConnectivityMap}
-  alt="Location & Connectivity Map"
-  className="w-full h-full object-cover rounded-lg"
-/>
+                  src={ConnectivityMap}
+                  alt="Location & Connectivity Map"
+                  className="w-full h-full object-cover rounded-lg"
+                />
               </div>
               <div className="bg-amber-50 border-l-4 border-orange-500 p-4">
                 <p className="text-sm font-semibold text-slate-900 mb-1">
@@ -805,11 +813,15 @@ export default function Index() {
                 </h3>
                 <p className="text-sm text-white/80 mb-6">{item.desc}</p>
                 <a
-  href={idx === 0 ? "/contact#free-consultation" : "/contact#site-visit"}
-  className="mt-auto w-full px-6 h-12 bg-white text-orange-600 font-bold text-sm uppercase tracking-wide rounded hover:bg-amber-50 transition-colors cursor-pointer flex items-center justify-center"
->
-  {idx === 0 ? "Start Here" : "Schedule a Visit"}
-</a>
+                  href={
+                    idx === 0
+                      ? "/contact#free-consultation"
+                      : "/contact#site-visit"
+                  }
+                  className="mt-auto w-full px-6 h-12 bg-white text-orange-600 font-bold text-sm uppercase tracking-wide rounded hover:bg-amber-50 transition-colors cursor-pointer flex items-center justify-center"
+                >
+                  {idx === 0 ? "Start Here" : "Schedule a Visit"}
+                </a>
               </div>
             ))}
           </div>
@@ -822,16 +834,15 @@ export default function Index() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
             {/* Brand */}
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-9 h-9 bg-orange-500 rounded flex items-center justify-center font-serif font-bold text-white text-sm">
-                  L
-                </div>
-                <span className="font-bold text-white text-sm uppercase tracking-wide">
-                  Lakhotia Group
-                </span>
-              </div>
+              <img
+                src="/logo.png"
+                alt="Lakhotia Group"
+                className="h-16 w-auto mb-4"
+              />
               <p className="text-xs text-white/40 leading-relaxed">
-                A well planned and organised, infrastructure-led industrial campus in active development on Ranihati–Amta Road, Howrah, West Bengal.
+                A well planned and organised, infrastructure-led industrial
+                campus in active development on Ranihati–Amta Road, Howrah, West
+                Bengal.
               </p>
             </div>
 
@@ -856,9 +867,7 @@ export default function Index() {
                     Site Gallery
                   </a>
                 </li>
-                <li>
-                  
-                </li>
+                <li></li>
                 <li>
                   <a href="#" className="hover:text-white transition-colors">
                     Contact
