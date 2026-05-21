@@ -833,12 +833,12 @@ export default function Index() {
         <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
             {/* Brand */}
-            <div>
-              <img
-                src="/logo.png"
-                alt="Lakhotia Group"
-                className="h-16 w-auto mb-4"
-              />
+           <div>
+  <img
+    src="/logo.png"
+    alt="Lakhotia Group"
+    className="h-20 w-auto mb-4"
+  />
               <p className="text-xs text-white/40 leading-relaxed">
                 A well planned and organised, infrastructure-led industrial
                 campus in active development on Ranihati–Amta Road, Howrah, West
