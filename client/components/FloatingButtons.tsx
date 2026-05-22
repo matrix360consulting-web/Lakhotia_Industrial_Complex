@@ -9,7 +9,7 @@ export function FloatingButtons() {
         href="https://wa.me/916293696009"
         target="_blank"
         rel="noopener noreferrer"
-        className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-xl transition-all"
+        className="bg-green-500 hover:bg-green-600 text-white p-2 rounded-full shadow-xl transition-all"
       >
         <MessageCircle size={28} />
       </a>
@@ -17,7 +17,7 @@ export function FloatingButtons() {
       {/* Call */}
       <a
         href="tel:+916293696009"
-        className="bg-slate-900 hover:bg-orange-500 text-white p-4 rounded-full shadow-xl transition-all"
+        className="bg-slate-900 hover:bg-orange-500 text-white p-2 rounded-full shadow-xl transition-all"
       >
         <Phone size={28} />
       </a>

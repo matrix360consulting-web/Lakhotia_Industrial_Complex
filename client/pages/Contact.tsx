@@ -1,10 +1,26 @@
-import { FloatingButtons } from "@/components/FloatingButtons";
 import { Footer } from "@/components/Footer";
 import { Navigation } from "@/components/Navigation";
-import { MessageCircle, Mail, Globe, MapPin, Phone } from "lucide-react";
+import { MessageCircle, Mail, Globe, MapPin, Phone, X } from "lucide-react";
 import { useState } from "react";
 import { supabase } from "../lib/supabase";
 export default function Contact() {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
+const websiteAnswers: Record<string, string> = {
+  location: "The project is located at Ranihati-Amta Road, Howrah, West Bengal.",
+
+  price:
+    "Please leave your mobile number and our team will connect with you regarding pricing.",
+
+  plots:
+    "Industrial plots are available for warehousing, logistics, SME manufacturing and freehold usage.",
+
+  contact:
+    "You can call or WhatsApp on +91 6293696009.",
+
+  default:
+    "Thank you for connecting with us. Please leave your mobile number and our team will connect with you.",
+};
   const [formData, setFormData] = useState({
     name: "",
     mobile: "",
@@ -15,8 +31,16 @@ export default function Contact() {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [activeTab, setActiveTab] = useState("consultation");
+  const [chatInput, setChatInput] = useState("");
+const [messages, setMessages] = useState([
+  {
+    type: "bot",
+    text: "Hi 👋 Welcome to Lakhotia Industrial Complex. Ask anything about plots, location, pricing or site visits.",
+  },
+]);
 
   const handleSubmit = async () => {
+  
   console.log("BUTTON CLICKED");
 
   if (!formData.name || !formData.mobile) {
@@ -45,6 +69,58 @@ export default function Contact() {
       requirement: "",
     });
   }
+};
+const handleChat = () => {
+  if (!chatInput.trim()) return;
+
+  const userMessage = {
+    type: "user",
+    text: chatInput,
+  };
+
+  let botReply = "";
+
+const lower = chatInput.toLowerCase();
+
+if (lower.includes("price") || lower.includes("cost")) {
+  botReply =
+    "Pricing depends on plot size and location. Please share your requirement and our team will assist you.";
+} else if (lower.includes("location")) {
+  botReply =
+    "The project is located at Ranihati-Amta Road, Howrah, West Bengal.";
+} else if (lower.includes("visit")) {
+  botReply =
+    "You can book a site visit directly from this page using the form.";
+} else if (lower.includes("plot")) {
+  botReply =
+    "We offer industrial plots suitable for warehousing, logistics and manufacturing.";
+} else {
+  botReply =
+    "Thank you for connecting with us. Please leave your mobile number and our team will connect with you.";
+}
+
+  
+
+  if (lower.includes("visit")) {
+    botReply =
+      "You can book a site visit directly from this page using the form.";
+  }
+
+  if (lower.includes("plot")) {
+    botReply =
+      "We offer industrial plots suitable for warehousing, logistics and manufacturing.";
+  }
+
+  setMessages([
+    ...messages,
+    userMessage,
+    {
+      type: "bot",
+      text: botReply,
+    },
+  ]);
+
+  setChatInput("");
 };
 
   return (
@@ -218,7 +294,7 @@ export default function Contact() {
                           className="px-4 py-2 border border-slate-300 rounded text-sm focus:outline-none focus:border-orange-500 text-slate-600"
                         />
                         <select className="px-4 py-2 border border-slate-300 rounded text-sm focus:outline-none focus:border-orange-500">
-                          <option value="">Preffered Time</option>
+                          <option value="">Preferred Time</option>
                           <option>11 am - 1 pm</option>
                           <option>2 pm - 4 pm</option>
                         </select>
@@ -338,7 +414,63 @@ export default function Contact() {
         </div>
       </section>
       <Footer />
-      <FloatingButtons />
+      {/* Chatbot */}
+<div className="fixed bottom-24 right-6 z-50">
+  {!isChatOpen ? (
+    <button
+      onClick={() => setIsChatOpen(true)}
+      className="bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-full shadow-xl"
+    >
+      <MessageCircle size={22} />
+    </button>
+  ) : (
+    <div className="w-96 bg-white rounded-2xl shadow-2xl border overflow-hidden">
+      <div className="bg-orange-500 text-white p-4 flex justify-between items-center">
+        <h3 className="font-semibold">Lakhotia Assistant</h3>
+
+        <button onClick={() => setIsChatOpen(false)}>
+          <X size={18} />
+        </button>
+      </div>
+
+      <div className="p-4 h-[500px] flex flex-col">
+
+  <div className="flex-1 overflow-y-auto space-y-3 mb-4">
+    {messages.map((msg, index) => (
+      <div
+        key={index}
+        className={`p-3 rounded-xl text-sm max-w-[85%] ${
+          msg.type === "user"
+            ? "bg-orange-500 text-white ml-auto"
+            : "bg-slate-100 text-slate-700"
+        }`}
+      >
+        {msg.text}
+      </div>
+    ))}
+  </div>
+
+  <div className="flex gap-2">
+    <input
+      type="text"
+      value={chatInput}
+      onChange={(e) => setChatInput(e.target.value)}
+      placeholder="Ask something..."
+      className="flex-1 border rounded-lg px-3 py-2 text-sm outline-none"
+    />
+
+    <button
+      onClick={handleChat}
+      className="bg-orange-500 text-white px-4 rounded-lg"
+    >
+      Send
+    </button>
+  </div>
+
+</div>
+    </div>
+  )}
+</div>
     </div>
   );
 }
