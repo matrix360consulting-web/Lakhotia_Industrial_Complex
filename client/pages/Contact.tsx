@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Navigation } from "@/components/Navigation";
 import { MessageCircle, Mail, Globe, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
-
+import { supabase } from "../lib/supabase";
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -14,13 +14,38 @@ export default function Contact() {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const handleSubmit = async () => {
-    if (!formData.name || !formData.mobile) return;
-
-    setIsSubmitted(true);
-  };
   const [activeTab, setActiveTab] = useState("consultation");
-  const [submitted, setSubmitted] = useState<string | null>(null);
+
+  const handleSubmit = async () => {
+  console.log("BUTTON CLICKED");
+
+  if (!formData.name || !formData.mobile) {
+    console.log("FIELDS EMPTY");
+    return;
+  }
+
+  console.log("SENDING DATA", formData);
+
+  const { data, error } = await supabase
+    .from("consultations")
+    .insert([formData])
+    .select();
+
+  console.log("SUPABASE RESPONSE:", data);
+  console.log("SUPABASE ERROR:", error);
+
+  if (!error) {
+    setIsSubmitted(true);
+
+    setFormData({
+      name: "",
+      mobile: "",
+      business: "",
+      industry: "",
+      requirement: "",
+    });
+  }
+};
 
   return (
     <div className="bg-amber-50 min-h-screen">
@@ -106,18 +131,33 @@ export default function Contact() {
                       <input
                         type="text"
                         placeholder="Business / Company Name"
+                        value={formData.business}
+                        onChange={(e) =>
+                          setFormData({ ...formData, business: e.target.value })
+                        }
                         className="w-full px-4 py-2 border border-slate-300 rounded text-sm focus:outline-none focus:border-orange-500"
                       />
                       <input
                         type="text"
                         placeholder="Industry / Business Type"
+                        value={formData.industry}
+                        onChange={(e) =>
+                          setFormData({ ...formData, industry: e.target.value })
+                        }
                         className="w-full px-4 py-2 border border-slate-300 rounded text-sm focus:outline-none focus:border-orange-500"
                       />
                       <textarea
                         placeholder="Tell us about your requirement"
                         rows={4}
+                        value={formData.requirement}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            requirement: e.target.value,
+                          })
+                        }
                         className="w-full px-4 py-2 border border-slate-300 rounded text-sm focus:outline-none focus:border-orange-500"
-                      ></textarea>
+                      />
 
                       <button
                         onClick={handleSubmit}
@@ -130,7 +170,7 @@ export default function Contact() {
                       >
                         BOOK MY FREE CONSULTATION
                       </button>
-                      {isSubmitted && formData.name && formData.mobile && (
+                      {isSubmitted && (
                         <p className="text-xs text-green-600 bg-green-50 border border-green-200 p-3 rounded">
                           ✓ Submitted — we'll be in touch within 24 hours.
                         </p>
@@ -154,15 +194,23 @@ export default function Contact() {
                     <div className="space-y-4">
                       <div className="grid grid-cols-2 gap-4">
                         <input
-                          type="text"
-                          placeholder="Your Name"
-                          className="px-4 py-2 border border-slate-300 rounded text-sm focus:outline-none focus:border-orange-500"
-                        />
+  type="text"
+  placeholder="Your Name"
+  value={formData.name}
+  onChange={(e) =>
+    setFormData({ ...formData, name: e.target.value })
+  }
+  className="px-4 py-2 border border-slate-300 rounded text-sm focus:outline-none focus:border-orange-500"
+/>
                         <input
-                          type="tel"
-                          placeholder="Mobile / WhatsApp"
-                          className="px-4 py-2 border border-slate-300 rounded text-sm focus:outline-none focus:border-orange-500"
-                        />
+  type="tel"
+  placeholder="Mobile / WhatsApp"
+  value={formData.mobile}
+  onChange={(e) =>
+    setFormData({ ...formData, mobile: e.target.value })
+  }
+  className="px-4 py-2 border border-slate-300 rounded text-sm focus:outline-none focus:border-orange-500"
+/>
                       </div>
                       <div className="grid grid-cols-2 gap-4">
                         <input
@@ -180,10 +228,18 @@ export default function Contact() {
                         rows={4}
                         className="w-full px-4 py-2 border border-slate-300 rounded text-sm focus:outline-none focus:border-orange-500"
                       ></textarea>
-                      <button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 rounded text-sm tracking-wide transition-colors">
-                        BOOK MY SITE VISIT
-                      </button>
-                      {isSubmitted && formData.name && formData.mobile && (
+                      <button
+  onClick={handleSubmit}
+  disabled={!formData.name || !formData.mobile}
+  className={`w-full py-4 rounded text-sm font-semibold tracking-wide transition-colors ${
+    formData.name && formData.mobile
+      ? "bg-orange-500 hover:bg-orange-600 text-white"
+      : "bg-gray-400 cursor-not-allowed text-white"
+  }`}
+>
+  BOOK MY SITE VISIT
+</button>
+                      {isSubmitted && (
                         <p className="text-xs text-green-600 bg-green-50 border border-green-200 p-3 rounded">
                           ✓ Submitted — we'll confirm your visit within 24
                           hours.
