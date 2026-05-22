@@ -1,6 +1,10 @@
+import { FloatingButtons } from "@/components/FloatingButtons";
+import { Footer } from "@/components/Footer";
 import project1 from "./project1.jpeg";
 import project2 from "./project2.jpeg";
 import project3 from "./project3.jpeg";
+import Inside_Construction_Modified from "./Inside_Construction_Modified.png";
+
 import { Navigation } from "@/components/Navigation";
 import { Camera } from "lucide-react";
 
@@ -45,7 +49,7 @@ export default function Gallery() {
               },
               {
                 caption: "Plot demarcation · April 2026",
-                image: null,
+                image: Inside_Construction_Modified,
               },
               {
                 caption: "Site entrance area · April 2026",
@@ -111,6 +115,9 @@ export default function Gallery() {
           </div>
         </div>
       </section>
+      <Footer />
+      <FloatingButtons />
     </div>
+    
   );
 }

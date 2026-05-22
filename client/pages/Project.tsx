@@ -1,3 +1,5 @@
+import { FloatingButtons } from "@/components/FloatingButtons";
+import { Footer } from "@/components/Footer";
 import ProjectImage from "./theproject.jpeg";
 import { Navigation } from "@/components/Navigation";
 import { CheckCircle, Clock } from "lucide-react";
@@ -68,7 +70,7 @@ export default function Project() {
                 active: false,
               },
               {
-                icon: " 🛣️",
+                icon: "ꈨ",
                 title: "Internal Roads — 40 ft Throughout",
                 desc: "40 ft internal roads giving full campus circulation — connecting every plot to the main road and the site entrance.",
                 status: "○ Phase 1 — Planned",
@@ -139,7 +141,7 @@ export default function Project() {
                 desc: "In-Complex accommodation and restaurant facilities",
               },
               {
-                icon: "⚖️",
+                icon: "🏥",
                 title: "Weighbridge, ATM & Medical",
                 desc: "On-campus weighbridge, ATM, and medical support access.",
               },
@@ -156,6 +158,9 @@ export default function Project() {
           </div>
         </div>
       </section>
+      <Footer />
+      <FloatingButtons />
     </div>
+    
   );
 }

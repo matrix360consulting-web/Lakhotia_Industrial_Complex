@@ -1,3 +1,5 @@
+import { FloatingButtons } from "@/components/FloatingButtons";
+import { Footer } from "@/components/Footer";
 import { Navigation } from "@/components/Navigation";
 import { useState } from "react";
 
@@ -282,6 +284,8 @@ export default function Knowledge() {
           </div>
         </div>
       </section>
+      <Footer />
+      <FloatingButtons />
     </div>
   );
 }

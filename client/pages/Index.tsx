@@ -1,3 +1,5 @@
+import { FloatingButtons } from "@/components/FloatingButtons";
+import { Footer } from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import ConnectivityMap from "./connectivity-map.png";
@@ -48,7 +50,7 @@ export default function Index() {
           <img
             src="https://cdn.builder.io/api/v1/image/assets%2F137966a6da914b47a16bcd89b41ca84c%2F4c8630d55e5d47bf85ed8187c98e20a6?format=webp&width=1200&height=1600"
             alt="Lakhotia Industrial Complex — Ranihati–Amta Road, Howrah"
-            className="w-full h-full object-cover object-[85%_center] md:object-cover md:object-center"
+            className="w-full h-full object-cover object-left md:object-cover md:object-center"
           />
 
           {/* Overlay */}
@@ -77,7 +79,7 @@ export default function Index() {
 
             {/* Subtitle */}
             <span
-              className="font-serif text-lg sm:text-2xl md:text-4xl font-normal italic block mb-6"
+              className="font-serif text-lg sm:text-2xl md:text-4xl font-normal italic block mb-1"
               style={{ color: "rgba(204, 85, 20, 1)" }}
             >
               Dawn of a new Industrial Era.
@@ -116,17 +118,17 @@ export default function Index() {
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-col sm:flex-row gap-3 items-center justify-center">
               <button
                 onClick={() => scrollToSection("#contact")}
-                className="flex items-center justify-center gap-2 px-6 h-12 bg-orange-500 text-white font-bold text-sm uppercase tracking-wide rounded hover:bg-orange-600 transition-colors cursor-pointer"
+                className="w-[90%] sm:w-auto flex items-center justify-center gap-2 px-6 h-12 bg-orange-500 text-white font-bold text-sm uppercase tracking-wide rounded hover:bg-orange-600 transition-colors cursor-pointer"
               >
                 <MessageCircle size={18} />
                 Free Consultation
               </button>
               <button
                 onClick={() => scrollToSection("#contact")}
-                className="flex items-center justify-center gap-2 px-6 h-12 bg-slate-900 text-white font-bold text-sm uppercase tracking-wide rounded hover:bg-slate-800 transition-colors cursor-pointer"
+                className="w-[90%] sm:w-auto flex items-center justify-center gap-2 px-6 h-12 bg-slate-900 text-white font-bold text-sm uppercase tracking-wide rounded hover:bg-slate-800 transition-colors cursor-pointer"
               >
                 <MapPin size={18} />
                 Book a Site Visit Today
@@ -232,8 +234,8 @@ export default function Index() {
                   </div>
                 </div>
                 <div className="bg-white p-6">
-                  <div className="font-serif text-3xl font-bold text-orange-500">
-                    <span className="whitespace-nowrap text-[25px] md:text-3xl">
+                  <div className="font-serif text-2xl md:text-3xl font-bold text-orange-500">
+                    <span className="whitespace-nowrap">
                       ~8 km
                     </span>
                   </div>
@@ -302,7 +304,8 @@ export default function Index() {
                   what's being built here over the next decade."
                 </p>
                 <div className="text-xs text-slate-600">
-                  <strong className="text-slate-900">Aditya Lakhotia</strong> ·
+                  <strong className="text-slate-900 text-base block">Aditya Lakhotia</strong>
+                  <br />
                   Director, Lakhotia Industrial Complex
                 </div>
               </div>
@@ -314,7 +317,7 @@ export default function Index() {
       {/* Industries Section */}
       <section
         id="gallery"
-        className="bg-white border-t border-slate-900/10 py-24"
+        className="bg-white border-t border-slate-900/10 py-8"
       >
         <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12">
           <div className="mb-16">
@@ -386,11 +389,12 @@ export default function Index() {
           <div className="bg-gradient-to-r from-orange-500 to-orange-600 p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <h3 className="font-serif text-2xl font-bold text-white max-w-md">
               Not sure which plot size is right for your business?{" "}
+              <br></br>
               <em className="italic">Let's figure it out together.</em>
             </h3>
             <button
               onClick={() => scrollToSection("#contact")}
-              className="min-w-[140px] px-4 py-2 bg-white text-orange-600 font-bold text-xs text-center rounded hover:bg-amber-50 transition-colors cursor-pointer mx-auto md:mx-0"
+              className="min-w-[140px] px-4 py-2 bg-white text-orange-600 font-bold text-sm text-center rounded hover:bg-amber-50 transition-colors cursor-pointer mx-auto md:mx-0"
             >
               Get Free Consultation
             </button>
@@ -401,7 +405,7 @@ export default function Index() {
       {/* Solutions Section */}
       <section
         id="knowledge"
-        className="bg-orange-50 border-t border-orange-900/20 py-24"
+        className="bg-orange-50 border-t border-orange-900/20 py-12"
       >
         <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12">
           <div className="mb-16">
@@ -425,37 +429,37 @@ export default function Index() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0.5 bg-orange-500/20 p-0.5">
             {[
               {
-                num: "01",
+                num: null,
                 title: "Customised Plot Solutions",
                 desc: "Plots from 1 bigha to 6+ bigha, customised to match exactly what your operation needs.",
                 tag: "1–6+ Bigha",
               },
               {
-                num: "02",
+                num: null,
                 title: "Free Business Advisory",
                 desc: "Help you understand what size plot you need and what the next steps are. This is complimentary.",
                 tag: "No charge",
               },
               {
-                num: "03",
+                num: null,
                 title: "Technical Consultancy",
                 desc: "Connect you with technical specialists and build-out partners who understand factory construction.",
                 tag: "Post-purchase",
               },
               {
-                num: "04",
+                num: null,
                 title: "Liaison & Approval Support",
                 desc: "Navigate approvals, licences, utilities connections, and compliance support for regulatory requirements.",
                 tag: "End-to-end",
               },
               {
-                num: "05",
+                num: null,
                 title: "State-of-the-Art Infrastructure",
                 desc: "Planned 60 ft main roads, 40 ft internal roads, full drainage, road lighting and power supply.",
                 tag: "Phase 1",
               },
               {
-                num: "06",
+                num: null,
                 title: "Complete Ecosystem",
                 desc: "Phase 2 brings on-site fuel, EV charging, hotels, weighbridge, ATM, and medical access.",
                 tag: "Planned",
@@ -484,7 +488,7 @@ export default function Index() {
       </section>
 
       {/* Plot Options */}
-      <section className="bg-amber-50 border-t border-amber-900/20 py-24">
+      <section className="bg-amber-50 border-t border-amber-900/20 py-12">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12">
           <div className="mb-16 max-w-2xl">
             <span className="text-xs font-bold uppercase tracking-widest text-orange-600">
@@ -518,18 +522,6 @@ export default function Index() {
                 featured: false,
               },
               {
-                type: "Large Industrial",
-                size: "3–6",
-                unit: "Bigha",
-                uses: [
-                  "Warehouse & distribution",
-                  "Large manufacturing",
-                  "3PL logistics",
-                  "Multi-bay operations",
-                ],
-                featured: true,
-              },
-              {
                 type: "Corner Plot",
                 size: "2–4",
                 unit: "Bigha",
@@ -540,6 +532,18 @@ export default function Index() {
                   "Showroom + production",
                 ],
                 featured: false,
+              },
+              {
+                type: "Large Industrial",
+                size: "3–6",
+                unit: "Bigha",
+                uses: [
+                  "Warehouse & distribution",
+                  "Large manufacturing",
+                  "3PL logistics",
+                  "Multi-bay operations",
+                ],
+                featured: true,
               },
               {
                 type: "Custom / Combined",
@@ -602,9 +606,9 @@ export default function Index() {
               </button>
               <button
                 onClick={() => scrollToSection("#contact")}
-                className="px-6 h-12 border-2 border-orange-500 text-orange-600 font-bold text-sm uppercase tracking-wide rounded hover:bg-orange-500 hover:text-white transition-colors cursor-pointer"
+                className="px-6 h-12 bg-[#0B163F] border-2 border-[#0B163F] text-white font-bold text-sm uppercase tracking-wide rounded hover:bg-[#13235c] transition-colors cursor-pointer"
               >
-                Request Plot Details
+                Book a Site Visit Today
               </button>
             </div>
           </div>
@@ -612,7 +616,7 @@ export default function Index() {
       </section>
 
       {/* About Section */}
-      <section className="bg-amber-50/50 border-t border-amber-900/20 py-24">
+      <section className="bg-amber-50/50 border-t border-amber-900/20 py-12">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Text */}
@@ -685,11 +689,11 @@ export default function Index() {
             </div>
 
             {/* Image placeholder */}
-            <div className="aspect-square rounded-sm overflow-hidden shadow-lg">
+            <div className="aspect-square rounded-sm overflow-hidden shadow-lg h-[320px]">
               <img
                 src="/Complex_Isometric_2.png"
                 alt="Lakhotia Industrial Complex"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-bottom scale-150"
               />
             </div>
           </div>
@@ -697,7 +701,7 @@ export default function Index() {
       </section>
 
       {/* Location Section */}
-      <section className="bg-white border-t border-slate-900/10 py-24">
+      <section className="bg-white border-t border-slate-900/10 py-12">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Left */}
@@ -837,100 +841,12 @@ export default function Index() {
           </div>
         </div>
       </section>
+      <Footer />
+      <FloatingButtons />
 
       {/* Footer */}
-      <footer className="bg-slate-900 border-t border-white/10 py-16">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-            {/* Brand */}
-            <div>
-              <img
-                src="/whitelogo.png"
-                alt="Lakhotia Group"
-                className="h-20 w-auto mb-4"
-              />
-              <p className="text-xs text-white/40 leading-relaxed">
-                A well planned and organised, infrastructure-led industrial
-                campus in active development on Ranihati–Amta Road, Howrah, West
-                Bengal.
-              </p>
-            </div>
-
-            {/* Navigate */}
-            <div>
-              <h5 className="text-xs font-bold uppercase tracking-widest text-orange-500 mb-4">
-                Navigate
-              </h5>
-              <ul className="space-y-2 text-xs text-white/40">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    The Project
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Site Gallery
-                  </a>
-                </li>
-                <li></li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Contact */}
-            <div>
-              <h5 className="text-xs font-bold uppercase tracking-widest text-orange-500 mb-4">
-                Contact
-              </h5>
-              <ul className="space-y-3 text-xs text-white/40">
-                <li>+91 6293 696009, +91 6293 696008</li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    info@lakhotiaindustrialcomplex.com
-                  </a>
-                </li>
-                <li>www.lakhotiaindustrialcomplex.com</li>
-              </ul>
-            </div>
-
-            {/* Address */}
-            <div>
-              <h5 className="text-xs font-bold uppercase tracking-widest text-orange-500 mb-4">
-                Site Address
-              </h5>
-              <p className="text-xs text-white/40 leading-relaxed">
-                Lakhotia Industrial Complex
-                <br />
-                Ranihati–Amta Road
-                <br />
-                Mouza Jalabishwanathpur
-                <br />
-                Howrah, West Bengal
-              </p>
-            </div>
-          </div>
-
-          {/* Bottom */}
-          <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between gap-4">
-            <p className="text-xs text-white/20">
-              © 2026 Lakhotia Industrial Complex Private Limited · CIN:
-              U68200WB2017PTC219104
-            </p>
-            <p className="text-xs text-white/20">
-              Site developed by Matrix360.
-            </p>
-          </div>
-        </div>
-      </footer>
+      
     </div>
+    
   );
 }
