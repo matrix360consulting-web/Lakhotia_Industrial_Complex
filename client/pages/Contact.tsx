@@ -1,7 +1,8 @@
+import { FloatingButtons } from "@/components/FloatingButtons";
 import { Footer } from "@/components/Footer";
 import { Navigation } from "@/components/Navigation";
 import { MessageCircle, Mail, Globe, MapPin, Phone, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
 export default function Contact() {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -32,12 +33,22 @@ const websiteAnswers: Record<string, string> = {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [activeTab, setActiveTab] = useState("consultation");
   const [chatInput, setChatInput] = useState("");
-const [messages, setMessages] = useState([
-  {
-    type: "bot",
-    text: "Hi 👋 Welcome to Lakhotia Industrial Complex. Ask anything about plots, location, pricing or site visits.",
-  },
-]);
+const [messages, setMessages] = useState(() => {
+  const saved = localStorage.getItem("chatHistory");
+
+  return saved
+    ? JSON.parse(saved)
+    : [
+        {
+          type: "bot",
+          text: "👋 Welcome to Lakhotia Industrial Complex. Ask anything about plots, location, pricing or site visits.",
+        },
+      ];
+});
+
+useEffect(() => {
+  localStorage.setItem("chatHistory", JSON.stringify(messages));
+}, [messages]);
 
   const handleSubmit = async () => {
   
@@ -94,6 +105,11 @@ if (lower.includes("price") || lower.includes("cost")) {
 } else if (lower.includes("plot")) {
   botReply =
     "We offer industrial plots suitable for warehousing, logistics and manufacturing.";
+}else if (/^[0-9]{10}$/.test(chatInput)) {
+  botReply =
+    "Thank you! Our team will contact you shortly.";
+
+  console.log("Saved Number:", chatInput);
 } else {
   botReply =
     "Thank you for connecting with us. Please leave your mobile number and our team will connect with you.";
@@ -414,19 +430,20 @@ if (lower.includes("price") || lower.includes("cost")) {
         </div>
       </section>
       <Footer />
+<FloatingButtons />
       {/* Chatbot */}
-<div className="fixed bottom-24 right-6 z-50">
+<div className="fixed bottom-40 right-6 z-50">
   {!isChatOpen ? (
     <button
       onClick={() => setIsChatOpen(true)}
       className="bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-full shadow-xl"
     >
-      <MessageCircle size={22} />
+      <MessageCircle size={28} />
     </button>
   ) : (
     <div className="w-96 bg-white rounded-2xl shadow-2xl border overflow-hidden">
       <div className="bg-orange-500 text-white p-4 flex justify-between items-center">
-        <h3 className="font-semibold">Lakhotia Assistant</h3>
+        <h3 className="font-semibold">Chat with us</h3>
 
         <button onClick={() => setIsChatOpen(false)}>
           <X size={18} />
