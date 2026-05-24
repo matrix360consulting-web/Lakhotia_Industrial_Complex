@@ -33,6 +33,9 @@ const websiteAnswers: Record<string, string> = {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [activeTab, setActiveTab] = useState("consultation");
   const [chatInput, setChatInput] = useState("");
+  const [chatStep, setChatStep] = useState("name");
+const [userName, setUserName] = useState("");
+const [userMobile, setUserMobile] = useState("");
 const [messages, setMessages] = useState(() => {
   const saved = localStorage.getItem("chatHistory");
 
@@ -41,7 +44,7 @@ const [messages, setMessages] = useState(() => {
     : [
         {
           type: "bot",
-          text: "👋 Welcome to Lakhotia Industrial Complex. Ask anything about plots, location, pricing or site visits.",
+          text:"👋 Welcome to Lakhotia Industrial Complex. Can I have your name?",
         },
       ];
 });
@@ -81,13 +84,72 @@ useEffect(() => {
     });
   }
 };
-const handleChat = () => {
+const handleChat = async () => {
   if (!chatInput.trim()) return;
 
   const userMessage = {
     type: "user",
     text: chatInput,
   };
+
+  setMessages((prev) => [...prev, userMessage]);
+  // STEP 1 → NAME
+if (chatStep === "name") {
+  setUserName(chatInput);
+
+  setTimeout(() => {
+    setMessages((prev) => [
+      ...prev,
+      {
+        type: "bot",
+        text: "Can you share your mobile number?",
+      },
+    ]);
+  }, 500);
+
+  setChatStep("mobile");
+  setChatInput("");
+  return;
+}
+
+// STEP 2 → MOBILE
+if (chatStep === "mobile") {
+  if (!/^[0-9]{10}$/.test(chatInput)) {
+    setMessages((prev) => [
+      ...prev,
+      {
+        type: "bot",
+        text: "Please enter a valid 10-digit mobile number.",
+      },
+    ]);
+
+    return;
+  }
+
+  setUserMobile(chatInput);
+
+  // SAVE TO SUPABASE
+  await supabase.from("chat_leads").insert([
+    {
+      name: userName,
+      mobile: chatInput,
+    },
+  ]);
+
+  setTimeout(() => {
+    setMessages((prev) => [
+      ...prev,
+      {
+        type: "bot",
+        text: `Thank you ${userName}! How can I help you today?`,
+      },
+    ]);
+  }, 500);
+
+  setChatStep("chat");
+  setChatInput("");
+  return;
+}
 
   let botReply = "";
 
