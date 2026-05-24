@@ -95,7 +95,23 @@ const handleChat = async () => {
   setMessages((prev) => [...prev, userMessage]);
   // STEP 1 → NAME
 if (chatStep === "name") {
-  setUserName(chatInput);
+  if (
+  chatInput.toLowerCase() === "hi" ||
+  chatInput.toLowerCase() === "hello"
+) {
+  setMessages((prev) => [
+    ...prev,
+    {
+      type: "bot",
+      text: "Can I have your name?",
+    },
+  ]);
+
+  setChatInput("");
+  return;
+}
+
+setUserName(chatInput);
 
   setTimeout(() => {
     setMessages((prev) => [
@@ -129,12 +145,20 @@ if (chatStep === "mobile") {
   setUserMobile(chatInput);
 
   // SAVE TO SUPABASE
-  await supabase.from("chat_leads").insert([
+  const { data, error } = await supabase
+  .from("chat_leads")
+  .insert([
+    
     {
       name: userName,
       mobile: chatInput,
     },
   ]);
+  if (error) {
+  console.log("SUPABASE ERROR:", error);
+} else {
+  console.log("Saved to Supabase!", data);
+}
 
   setTimeout(() => {
     setMessages((prev) => [
