@@ -3,7 +3,10 @@ import { Footer } from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import ConnectivityMap from "./connectivity-map.png";
+import HeroBanner from "./herobannermain.png";
 import { Navigation } from "@/components/Navigation";
+import Made from "./made.jpeg";
+import TownshipImage from "./insteadofgate.png";
 import {
   MessageCircle,
   MapPin,
@@ -44,26 +47,26 @@ export default function Index() {
       {/* Hero Banner - Edge to Edge */}
       <section
         id="home"
-        className="w-screen h-screen mt-16 relative overflow-hidden bg-gradient-to-b from-amber-50 to-white"
+        className="w-full min-h-screen mt-16 relative overflow-hidden bg-[#f5efe2]"
       >
         <div className="hidden md:block absolute inset-0">
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets%2F137966a6da914b47a16bcd89b41ca84c%2F4c8630d55e5d47bf85ed8187c98e20a6?format=webp&width=1200&height=1600"
-            alt="Lakhotia Industrial Complex — Ranihati–Amta Road, Howrah"
-            className="w-full h-full object-cover object-left md:object-cover md:object-center"
-          />
+  <img
+    src={HeroBanner}
+    alt="Lakhotia Industrial Complex"
+    className="absolute top-0 -right-24 w-[115%] h-full object-cover scale-100"
+    style={{
+      objectPosition: "58% center",
+    }}
+  />
 
-          {/* Overlay */}
-          <div
-            className="absolute inset-0 bg-gradient-to-r from-amber-50/95 from-0% via-amber-50/75 via-40% to-amber-50/15 to-100%"
-            style={{ paddingLeft: 0, paddingRight: 0 }}
-          ></div>
-        </div>
-
+  {/* Left Fade Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-r from-[#f5efe2] via-[#f5efe2]/92 via-[38%] to-transparent"></div>
+</div>
         {/* Content */}
 
-        <div className="relative h-full flex items-center pl-8 sm:pl-16 md:pl-20 max-w-2xl">
-          <div>
+        <div className="relative z-10 h-full flex items-center justify-start px-6 sm:px-8 md:px-14 lg:px-20">
+          
+          <div className="max-w-[520px] pt-20 md:pt-16">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/35 px-4 py-2 rounded-full mb-6 group">
               <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></div>
@@ -85,13 +88,13 @@ export default function Index() {
               Dawn of a new Industrial Era.
             </span>
             <img
-              src="https://cdn.builder.io/api/v1/image/assets%2F137966a6da914b47a16bcd89b41ca84c%2F4c8630d55e5d47bf85ed8187c98e20a6?format=webp&width=1200&height=1600"
+              src={HeroBanner}
               alt="Lakhotia Industrial Complex"
-              className="block md:hidden w-[160%] max-w-none h-auto object-cover mt-6 -ml-[210px]"
+              className="block md:hidden w-[135%] max-w-none h-auto object-cover mt-6 -ml-[70px]"
             />
 
             {/* Description */}
-            <p className="text-sm sm:text-base text-slate-700 max-w-md leading-relaxed mb-6">
+            <p className="text-sm sm:text-base text-slate-700 max-w-md leading-relaxed mt-4 mb-6">
               Bengal is now witnessing a change. Industrial momentum is building
               across the eastern corridor — and right here on Ranihati–Amta
               Road, Howrah, a new industrial complex is being built for the
@@ -118,7 +121,7 @@ export default function Index() {
             </div>
 
             {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-3 items-center justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 items-center justify-center">
               <button
                 onClick={() => scrollToSection("#contact")}
                 className="w-[90%] sm:w-auto flex items-center justify-center gap-2 px-6 h-12 bg-orange-500 text-white font-bold text-sm uppercase tracking-wide rounded hover:bg-orange-600 transition-colors cursor-pointer"
@@ -145,7 +148,7 @@ export default function Index() {
 
       {/* Marquee */}
       <div
-        className="bg-orange-500 h-11 flex items-center overflow-hidden"
+        className="bg-orange-500 h-11 flex items-center overflow-hidden mt-4 md:mt-0"
         style={{ paddingTop: "8px", justifyContent: "flex-start" }}
       >
         <div className="flex gap-6 whitespace-nowrap animate-scroll text-white text-xs font-bold uppercase tracking-widest">
@@ -235,9 +238,7 @@ export default function Index() {
                 </div>
                 <div className="bg-white p-6">
                   <div className="font-serif text-2xl md:text-3xl font-bold text-orange-500">
-                    <span className="whitespace-nowrap">
-                      ~8 km
-                    </span>
+                    <span className="whitespace-nowrap">~8 km</span>
                   </div>
                   <div className="text-xs text-slate-600 mt-1">
                     From NH-6, primary freight corridor
@@ -304,7 +305,9 @@ export default function Index() {
                   what's being built here over the next decade."
                 </p>
                 <div className="text-xs text-slate-600">
-                  <strong className="text-slate-900 text-base block">Aditya Lakhotia</strong>
+                  <strong className="text-slate-900 text-base block">
+                    Aditya Lakhotia
+                  </strong>
                   <br />
                   Director, Lakhotia Industrial Complex
                 </div>
@@ -317,14 +320,18 @@ export default function Index() {
       {/* Industries Section */}
       <section
         id="gallery"
-        className="bg-white border-t border-slate-900/10 py-8"
+        className="bg-white border-t border-slate-900/10 pt-2 pb-8"
       >
         <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12">
           <div className="mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-orange-600">
-              Industries Growing in Bengal
-            </span>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold mt-4 mb-6 text-slate-900">
+            <div className="mb-4">
+              <img
+                src={Made}
+                alt="Make In India"
+                className="w-56 md:w-72 object-contain -mb-6 -ml-3 opacity-90"
+              />
+            </div>
+            <h2 className="font-serif text-5xl md:text-6xl font-bold leading-[0.95] mt-2 mb-5 text-slate-900">
               What's moving here.
               <br />
               <em className="italic text-orange-500">What could move you.</em>
@@ -388,8 +395,7 @@ export default function Index() {
           {/* CTA */}
           <div className="bg-gradient-to-r from-orange-500 to-orange-600 p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <h3 className="font-serif text-2xl font-bold text-white max-w-md">
-              Not sure which plot size is right for your business?{" "}
-              <br></br>
+              Not sure which plot size is right for your business? <br></br>
               <em className="italic">Let's figure it out together.</em>
             </h3>
             <button
@@ -618,7 +624,7 @@ export default function Index() {
       {/* About Section */}
       <section className="bg-amber-50/50 border-t border-amber-900/20 py-12">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             {/* Text */}
             <div>
               <span className="text-xs font-bold uppercase tracking-widest text-orange-600">
@@ -689,11 +695,11 @@ export default function Index() {
             </div>
 
             {/* Image placeholder */}
-            <div className="aspect-square rounded-sm overflow-hidden shadow-lg h-[320px]">
+            <div className="overflow-hidden -mt-96">
               <img
-                src="/Complex_Isometric_2.png"
-                alt="Lakhotia Industrial Complex"
-                className="w-full h-full object-cover object-bottom scale-150"
+                src={TownshipImage}
+                alt="Industrial Township"
+                className="w-full max-w-[900px] h-auto object-cover shadow-2xl"
               />
             </div>
           </div>
@@ -845,8 +851,6 @@ export default function Index() {
       <FloatingButtons />
 
       {/* Footer */}
-      
     </div>
-    
   );
 }
