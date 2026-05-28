@@ -2,7 +2,7 @@ import { FloatingButtons } from "@/components/FloatingButtons";
 import { Footer } from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import ConnectivityMap from "./connectivity-map.png";
+import NewMap from "./insteadofmap.png";
 import HeroBanner from "./herobannermain.png";
 import { Navigation } from "@/components/Navigation";
 import Made from "./made.jpeg";
@@ -331,7 +331,7 @@ export default function Index() {
                 className="w-56 md:w-72 object-contain -mb-6 -ml-3 opacity-90"
               />
             </div>
-            <h2 className="font-serif text-5xl md:text-6xl font-bold leading-[0.95] mt-2 mb-5 text-slate-900">
+            <h2 className="font-serif text-5xl md:text-5xl font-bold leading-[0.95] mt-4 mb-5 text-slate-900">
               What's moving here.
               <br />
               <em className="italic text-orange-500">What could move you.</em>
@@ -732,19 +732,23 @@ export default function Index() {
               {/* Distances */}
               <div className="space-y-0 bg-slate-900/10 p-0.5">
                 {[
-                  { label: "NH-6", distance: "~8 km", time: "~15 min" },
-                  { label: "NH-16", distance: "~12 km", time: "~20 min" },
+                  { label: "NH-6", distance: "~4 km" },
+                  { label: "Sankrail Goods Yard", distance: "~11 km"},
                   {
                     label: "Howrah Railway Station",
-                    distance: "~18 km",
-                    time: "~35 min",
+                    distance: "~28 km"
                   },
                   {
-                    label: "Kolkata Port Trust",
-                    distance: "~22 km",
-                    time: "~40 min",
+                    label: "Khinderpore Dock",
+                    distance: "~30 km"
+                    
                   },
-                  { label: "Uluberia Hub", distance: "~6 km", time: "~12 min" },
+                  {
+                    label: "Haldia Dock",
+                    distance: "~99 km"
+                    
+                  },
+                  
                 ].map((item, idx) => (
                   <div
                     key={idx}
@@ -762,7 +766,7 @@ export default function Index() {
                       <div className="font-serif font-bold text-orange-600">
                         {item.distance}
                       </div>
-                      <div className="text-xs text-slate-600">{item.time}</div>
+                      
                     </div>
                   </div>
                 ))}
@@ -770,12 +774,12 @@ export default function Index() {
             </div>
 
             {/* Right - Google Map */}
-            <div>
-              <div className="bg-white aspect-square rounded-sm flex items-center justify-center mb-4 border border-slate-200 overflow-hidden">
+            <div className="mb-4 overflow-hidden">
+              <div className="mb-4 border border-slate-200 overflow-hidden rounded-xl">
                 <img
-                  src={ConnectivityMap}
+                  src={NewMap}
                   alt="Location & Connectivity Map"
-                  className="w-full h-full object-cover rounded-lg"
+                  className="w-full h-full object-fill"
                 />
               </div>
               <div className="bg-amber-50 border-l-4 border-orange-500 p-4">
