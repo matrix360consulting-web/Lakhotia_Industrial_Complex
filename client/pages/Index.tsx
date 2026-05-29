@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import NewMap from "./insteadofmap.png";
 import HeroBanner from "./herobannermain.png";
 import { Navigation } from "@/components/Navigation";
-import Made from "./made.jpeg";
+import Made from "./made.png";
 import TownshipImage from "./insteadofgate.png";
 import {
   MessageCircle,
@@ -324,14 +324,14 @@ export default function Index() {
       >
         <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12">
           <div className="mb-16">
-            <div className="mb-4">
+            <div className="-mb-4">
               <img
                 src={Made}
                 alt="Make In India"
-                className="w-56 md:w-72 object-contain -mb-6 -ml-3 opacity-90"
+                className="w-56 md:w-71 object-contain -mb-16 -ml-24 opacity-90"
               />
             </div>
-            <h2 className="font-serif text-5xl md:text-5xl font-bold leading-[0.95] mt-4 mb-5 text-slate-900">
+            <h2 className="font-serif text-5xl md:text-5xl font-bold leading-[0.95] mt-2 mb-5 text-slate-900">
               What's moving here.
               <br />
               <em className="italic text-orange-500">What could move you.</em>
